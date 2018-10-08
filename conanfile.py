@@ -8,8 +8,6 @@ class RestinioConan(ConanFile):
     url = "https://bitbucket.org/sobjectizerteam/restinio-0.4"
     description = "RESTinio is a header-only C++14 library that gives you an embedded HTTP/Websocket server."
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
-    default_options = "shared=False"
     generators = "cmake"
     requires = "asio/1.12.0@bincrafters/stable", \
                 "fmt/5.2.0@bincrafters/stable", \

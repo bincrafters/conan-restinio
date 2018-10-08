@@ -5,7 +5,6 @@ env:
      - CONAN_USERNAME: "khm"
      - CONAN_LOGIN_USERNAME: "kylemacfarlan"
      - CONAN_CHANNEL: "stable"
-     - CONAN_UPLOAD: "https://api.bintray.com/conan/kylemacfarlan/khm-conan"
      
 linux: &linux
    os: linux

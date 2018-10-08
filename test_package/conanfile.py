@@ -20,6 +20,7 @@ class RestinioTestConan(ConanFile):
         self.copy('*.so*', dst='bin', src='lib')
 
     def test(self):
+        pass
         # Not sure about a good way to test this, since it's a server
         # if not tools.cross_building(self.settings):
         #     os.chdir("bin")

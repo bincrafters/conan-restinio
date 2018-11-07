@@ -32,3 +32,7 @@ class RestinioConan(ConanFile):
 
     def package_id(self):
         self.info.header_only()
+
+    def package_info(self):
+        if tools.os_info.is_windows:
+            self.cpp_info.libs.extend(["ws2_32", "Mswsock"])

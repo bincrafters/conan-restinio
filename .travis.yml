@@ -6,11 +6,14 @@ linux: &linux
    python: "3.7"
    services:
      - docker
-
+osx: &osx
+   os: osx
+   language: generic
 matrix:
    include:
       - <<: *linux
         env: CONAN_CLANG_VERSIONS=4.0 CONAN_DOCKER_IMAGE=conanio/clang40
+
       - <<: *osx
         osx_image: xcode10
         env: CONAN_APPLE_CLANG_VERSIONS=10.0

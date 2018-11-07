@@ -1,6 +1,11 @@
-import os
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-from conans import ConanFile, CMake, tools
+import os
+import subprocess
+import requests
+import time
+from conans import ConanFile, CMake, tools, RunEnvironment
 
 
 class RestinioTestConan(ConanFile):
@@ -9,19 +14,14 @@ class RestinioTestConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
-        # in "test_package"
         cmake.configure()
         cmake.build()
 
-    def imports(self):
-        self.copy("*.dll", dst="bin", src="bin")
-        self.copy("*.dylib*", dst="bin", src="lib")
-        self.copy('*.so*', dst='bin', src='lib')
-
     def test(self):
-        pass
-        # Not sure about a good way to test this, since it's a server
-        # if not tools.cross_building(self.settings):
-        #     os.chdir("bin")
-        #     self.run(".%sexample" % os.sep)
+        bin_path = os.path.join("bin", "test_package")
+        env_build = RunEnvironment(self)
+        with tools.environment_append(env_build.vars):
+            process = subprocess.Popen([bin_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        time.sleep(1)
+        response = requests.get("http://0.0.0.0:8080")
+        assert response.ok

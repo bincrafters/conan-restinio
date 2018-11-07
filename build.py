@@ -1,7 +1,9 @@
-from conan.packager import ConanMultiPackager
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+
+from bincrafters import build_template_header_only
 
 if __name__ == "__main__":
-    builder = ConanMultiPackager(build_policy = "missing")
-    builder.add_common_builds(pure_c=False)
+    builder = build_template_header_only.get_builder()
     builder.run()

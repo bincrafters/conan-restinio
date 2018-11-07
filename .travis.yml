@@ -1,42 +1,24 @@
-
-env:
-   global:
-     - CONAN_REFERENCE: "restinio/0.4.8"
-     - CONAN_USERNAME: "khm"
-     - CONAN_LOGIN_USERNAME: "kylemacfarlan"
-     - CONAN_CHANNEL: "stable"
-     - CONAN_REMOTES: "https://api.bintray.com/conan/bincrafters/public-conan"
-     - CONAN_UPLOAD: "https://api.bintray.com/conan/kylemacfarlan/khm-conan"
-     
 linux: &linux
    os: linux
+   dist: xenial
    sudo: required
    language: python
-   python: "3.6"
+   python: "3.7"
    services:
      - docker
-osx: &osx
-   os: osx
-   language: generic
+
 matrix:
    include:
-
       - <<: *linux
-        env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=lasote/conangcc5
-
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=lasote/conangcc6
-
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=lasote/conangcc7
-
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=lasote/conangcc8
+        env: CONAN_CLANG_VERSIONS=4.0 CONAN_DOCKER_IMAGE=conanio/clang40
+      - <<: *osx
+        osx_image: xcode10
+        env: CONAN_APPLE_CLANG_VERSIONS=10.0
 
 install:
-  - chmod +x .travis/install.sh
-  - ./.travis/install.sh
+  - chmod +x .ci/install.sh
+  - ./.ci/install.sh
 
 script:
-  - chmod +x .travis/run.sh
-  - ./.travis/run.sh
+  - chmod +x .ci/run.sh
+  - ./.ci/run.sh

@@ -1,9 +1,9 @@
-project(RestinioTest CXX)
-cmake_minimum_required(VERSION 2.8.12)
+project(test_package CXX)
+cmake_minimum_required(VERSION 3.1.2)
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(example example.cpp)
-target_link_libraries(example ${CONAN_LIBS})
-target_compile_features(example PRIVATE cxx_std_14)
+add_executable(${CMAKE_PROJECT_NAME} test_package.cpp)
+target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS})
+target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_14)

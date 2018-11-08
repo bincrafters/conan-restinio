@@ -1,22 +1,12 @@
 #include <restinio/all.hpp>
-#ifdef WIN32
-#    include <winsock2.h>
-#endif
 
 int main() {
-
-#ifdef WIN32
-    WORD wVersionRequested = MAKEWORD(2, 2);
-    WSADATA wsaData;
-    WSAStartup(wVersionRequested, &wsaData);
-#endif
-
     restinio::run(
       restinio::on_this_thread()
         .port(8080)
-        .address("0.0.0.0")
+        .address("localhost")
         .request_handler([](auto req) {
-          return req->create_response().set_body("Hello, World!").done();
+          return req->create_response().set_body("Hello, Bincrafters!").done();
         }));
 
     return 0;

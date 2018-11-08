@@ -1,8 +1,7 @@
-
+#include <restinio/all.hpp>
 #ifdef WIN32
 #    include <winsock2.h>
 #endif
-#include <restinio/all.hpp>
 
 int main() {
 

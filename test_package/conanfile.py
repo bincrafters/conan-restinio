@@ -21,8 +21,9 @@ class RestinioTestConan(ConanFile):
         bin_path = os.path.join("bin", "test_package")
         env_build = RunEnvironment(self)
         with tools.environment_append(env_build.vars):
-            subprocess.Popen([bin_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            process = subprocess.Popen([bin_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         time.sleep(1)
         response = requests.get("http://localhost:8080")
         assert response.ok
         self.output.info("RESPONSE: %s" % response.text)
+        process.terminate()

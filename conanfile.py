@@ -4,7 +4,7 @@ from conans import ConanFile, tools
 
 class RestinioConan(ConanFile):
     name = "restinio"
-    version = "0.4.8"
+    version = "0.4.8.6"
     license = "BSD-3-Clause"
     homepage = "https://github.com/Stiffstream/restinio"
     url = "https://github.com/bincrafters/conan-restinio"

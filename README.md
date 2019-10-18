@@ -2,7 +2,7 @@
 
 | Bintray | Appveyor | Travis | 
 |---------|-----------|--------|
-|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/restinio%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/restinio%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-restinio?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-restinio)|[![Build Status](https://travis-ci.org/bincrafters/conan-restinio.svg)](https://travis-ci.org/bincrafters/conan-restinio)|
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/restinio%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/restinio%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-restinio?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-restinio)|[![Build Status](https://travis-ci.com/bincrafters/conan-restinio.svg)](https://travis-ci.com/bincrafters/conan-restinio)|
 
 ## Conan.io Information
 

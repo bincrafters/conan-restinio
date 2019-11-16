@@ -8,14 +8,13 @@ class RestinioConan(ConanFile):
     license = "BSD-3-Clause"
     homepage = "https://github.com/Stiffstream/restinio"
     url = "https://github.com/bincrafters/conan-restinio"
-    author = "Bincrafters <bincrafters@gmail.com>"
     topics = ("conan", "restinio", "http-server", "websocket", "http")
     description = "RESTinio is a header-only C++14 library that gives you an embedded HTTP/Websocket server."
     exports = ["LICENSE.md"]
     no_copy_source = True
-    requires = ("asio/1.12.0@bincrafters/stable",
+    requires = ("asio/1.13.0",
                 "fmt/5.2.0@bincrafters/stable",
-                "http-parser/2.8.1@bincrafters/stable")
+                "http_parser/2.9.2")
     _source_subfolder = "source_subfolder"
 
     def source(self):
